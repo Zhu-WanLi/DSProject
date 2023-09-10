@@ -2,6 +2,7 @@ package com.zhu.mall.model.dao;
 
 import com.zhu.mall.model.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository("userMapper")
@@ -19,4 +20,7 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     User selectByName(String userName);
+
+    User selectLogin(@Param("username") String username,@Param("password") String password);
+                    //多个参数要进行指定
 }
