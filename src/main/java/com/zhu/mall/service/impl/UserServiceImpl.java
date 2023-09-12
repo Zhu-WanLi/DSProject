@@ -1,11 +1,11 @@
-package com.zhu.mall.model.service.impl;
+package com.zhu.mall.service.impl;
 
-import com.zhu.exception.MallException;
-import com.zhu.exception.MallExceptionEnum;
+import com.zhu.mall.exception.MallException;
+import com.zhu.mall.exception.MallExceptionEnum;
 import com.zhu.mall.model.dao.UserMapper;
 import com.zhu.mall.model.pojo.User;
-import com.zhu.mall.model.service.UserService;
-import com.zhu.mall.model.utils.MD5Utils;
+import com.zhu.mall.service.UserService;
+import com.zhu.mall.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

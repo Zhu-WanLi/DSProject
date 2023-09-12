@@ -1,6 +1,6 @@
-package com.zhu.mall.model.service;
+package com.zhu.mall.service;
 
-import com.zhu.exception.MallException;
+import com.zhu.mall.exception.MallException;
 import com.zhu.mall.model.pojo.User;
 
 public interface UserService {

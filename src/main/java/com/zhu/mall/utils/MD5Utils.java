@@ -1,6 +1,6 @@
-package com.zhu.mall.model.utils;
+package com.zhu.mall.utils;
 
-import com.zhu.mall.model.common.Constant;
+import com.zhu.mall.common.Constant;
 import org.apache.tomcat.util.codec.binary.Base64;
 
 import java.security.MessageDigest;

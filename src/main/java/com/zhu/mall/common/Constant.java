@@ -1,4 +1,4 @@
-package com.zhu.mall.model.common;
+package com.zhu.mall.common;
 
 /*
 * 描述：    常量

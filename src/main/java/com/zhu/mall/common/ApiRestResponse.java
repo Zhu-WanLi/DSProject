@@ -1,6 +1,6 @@
-package com.zhu.mall.model.common;
+package com.zhu.mall.common;
 
-import com.zhu.exception.MallExceptionEnum;
+import com.zhu.mall.exception.MallExceptionEnum;
 
 /*
 *

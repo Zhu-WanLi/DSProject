@@ -1,7 +1,6 @@
 package com.zhu.mall.model.dao;
 
 import com.zhu.mall.model.pojo.User;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

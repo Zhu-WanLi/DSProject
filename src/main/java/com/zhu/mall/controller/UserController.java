@@ -1,12 +1,12 @@
-package com.zhu.mall.model.controller;
+package com.zhu.mall.controller;
 
 import com.mysql.cj.util.StringUtils;
-import com.zhu.exception.MallException;
-import com.zhu.exception.MallExceptionEnum;
-import com.zhu.mall.model.common.ApiRestResponse;
-import com.zhu.mall.model.common.Constant;
+import com.zhu.mall.exception.MallException;
+import com.zhu.mall.exception.MallExceptionEnum;
+import com.zhu.mall.common.ApiRestResponse;
+import com.zhu.mall.common.Constant;
 import com.zhu.mall.model.pojo.User;
-import com.zhu.mall.model.service.UserService;
+import com.zhu.mall.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
