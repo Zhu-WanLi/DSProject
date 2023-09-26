@@ -1,10 +1,11 @@
 package com.zhu.mall.model.vo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CategoryVO {
+public class CategoryVO implements Serializable {   //缓存，序列化
     private Integer id;
 
     private String name;
