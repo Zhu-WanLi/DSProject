@@ -1,5 +1,6 @@
 package com.zhu.mall.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.zhu.mall.common.ApiRestResponse;
 import com.zhu.mall.common.Constant;
 import com.zhu.mall.exception.MallException;
@@ -96,6 +97,22 @@ public class ProductAdminController {
     public ApiRestResponse deleteProduct(@RequestParam Integer id){
         productService.delete(id);
         return ApiRestResponse.success();
+    }
+
+    @ApiOperation("后台批量上下架商品")
+    @PostMapping("admin/product/batchUpdateSellStatus")
+    public ApiRestResponse batchUpdateSellStatus(@RequestParam Integer[] ids,
+                                                 @RequestParam Integer sellStatus){
+        productService.batchUpdateSellStatus(ids,sellStatus);
+        return ApiRestResponse.success();
+    }
+
+    @ApiOperation("后台商品列表接口")
+    @PostMapping("admin/product/list")
+    public ApiRestResponse list(@RequestParam Integer pageNum,
+                                @RequestParam Integer pageSize){
+        PageInfo pageInfo = productService.listForAdmin(pageNum, pageSize);
+        return ApiRestResponse.success(pageInfo);
     }
 
 
