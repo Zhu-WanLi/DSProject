@@ -172,7 +172,6 @@
     from imooc_mall_product
     order by update_time desc
   </select>
-
   <select id="selectList" resultMap="BaseResultMap" parameterType="com.zhu.mall.model.query.ProductListQuery">
     select
     <include refid="Base_Column_List" />
@@ -191,5 +190,4 @@
     </where>
     order by update_time desc
   </select>
-
 </mapper>

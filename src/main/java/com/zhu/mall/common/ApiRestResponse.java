@@ -2,7 +2,7 @@ package com.zhu.mall.common;
 
 import com.zhu.mall.exception.MallExceptionEnum;
 
-/*
+/**
 *
 * 描述：   通用返回对象
 *

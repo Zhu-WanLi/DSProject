@@ -1,6 +1,6 @@
 package com.zhu.mall.service;
 
-/*
+/**
 * 描述：       商品Service
 * */
 

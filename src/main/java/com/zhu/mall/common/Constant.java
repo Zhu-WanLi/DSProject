@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
-/*
+/**
 * 描述：    常量
 * */
 @Component

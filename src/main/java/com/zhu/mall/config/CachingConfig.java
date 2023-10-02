@@ -1,6 +1,6 @@
 package com.zhu.mall.config;
 
-/*
+/**
 * 描述：       缓存的配置类
 * */
 

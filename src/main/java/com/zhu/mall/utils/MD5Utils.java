@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 
-/*
+/**
 * 描述：   MD5工具
 * */
 public class MD5Utils {

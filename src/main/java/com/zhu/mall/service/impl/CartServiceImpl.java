@@ -89,6 +89,24 @@ public class CartServiceImpl implements CartService {
         return this.list(userId);
     }
 
+    @Override
+    public List<CartVO> selectOrNot(Integer userId, Integer productId, Integer selected) {
+        Cart cart = cartMapper.selectCartByUserIdAndProductId(userId, productId);
+        if (cart == null){
+            //商品不在购物车
+            throw new MallException(MallExceptionEnum.UPDATE_FAILED);
+        } else {
+            cartMapper.selectOrNot(userId,productId,selected);
+        }
+        return this.list(userId);
+    }
+
+    @Override
+    public List<CartVO> selectOrNotAll(Integer userId, Integer selected) {
+        cartMapper.selectOrNot(userId,null,selected);
+        return this.list(userId);
+    }
+
     private void validProduct(Integer productId, Integer count) {
         Product product = productMapper.selectByPrimaryKey(productId);
         //判断商品是否存在、上架
