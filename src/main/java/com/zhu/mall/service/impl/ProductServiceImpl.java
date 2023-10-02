@@ -21,7 +21,7 @@ import org.springframework.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
 * 描述：       商品服务实现类
 * */
 @Service

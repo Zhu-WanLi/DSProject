@@ -26,7 +26,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.UUID;
 
-/*
+/**
 * 描述：       后台商品管理Controller
 * */
 @RestController

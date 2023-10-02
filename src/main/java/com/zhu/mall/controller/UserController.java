@@ -25,7 +25,7 @@ public class UserController {
     }
 
 
-    /*
+    /**
     *    注册
     * */
     @PostMapping("/register")
@@ -50,7 +50,7 @@ public class UserController {
     }
 
 
-    /*
+    /**
     *      用户登录接口
     * */
     @PostMapping("/login")
@@ -76,7 +76,7 @@ public class UserController {
         return ApiRestResponse.success(user);
     }
 
-    /*
+    /**
     *    管理员登录接口
     * */
     @PostMapping("/adminLogin")
@@ -115,7 +115,7 @@ public class UserController {
         return ApiRestResponse.success();
     }
 
-    /*
+    /**
      *      更新个性签名
      * */
     @PostMapping("/user/update")
