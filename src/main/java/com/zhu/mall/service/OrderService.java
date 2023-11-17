@@ -2,7 +2,11 @@ package com.zhu.mall.service;
 
 import com.github.pagehelper.PageInfo;
 import com.zhu.mall.model.request.CreateOrderReq;
+import com.zhu.mall.model.vo.OrderStatisticsVO;
 import com.zhu.mall.model.vo.OrderVO;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * 描述：      订单Service
@@ -26,4 +30,6 @@ public interface OrderService {
     void delivered(String orderNo);
 
     void finish(String orderNo);
+
+    List<OrderStatisticsVO> statistic(Date startDate, Date endDate);
 }

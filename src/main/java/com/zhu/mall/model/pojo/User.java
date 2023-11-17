@@ -11,6 +11,8 @@ public class User {
 
     private String personalizedSignature;
 
+    private String emailAddress;
+
     private Integer role;
 
     private Date createTime;
@@ -49,6 +51,14 @@ public class User {
         this.personalizedSignature = personalizedSignature == null ? null : personalizedSignature.trim();
     }
 
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress == null ? null : emailAddress.trim();
+    }
+
     public Integer getRole() {
         return role;
     }
@@ -71,18 +81,5 @@ public class User {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", personalizedSignature='" + personalizedSignature + '\'' +
-                ", role=" + role +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
     }
 }

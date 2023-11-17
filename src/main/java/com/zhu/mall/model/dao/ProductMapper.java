@@ -29,3 +29,24 @@ public interface ProductMapper {
 
     List<Product> selectList(@Param("query") ProductListQuery query);
 }
+
+/*   User selectByName(String userName);
+
+    User selectLogin(@Param("username") String username,@Param("password") String password);
+                    //多个参数要进行指定
+
+
+                     <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from imooc_mall_user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectLogin" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from imooc_mall_user
+    where username = #{username,jdbcType=VARCHAR}
+    and password = #{password,jdbcType=VARCHAR}
+  </select>*/

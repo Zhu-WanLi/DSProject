@@ -17,13 +17,14 @@ public class UserFilterConfig {
     }
 
     @Bean(name = "userFilterConf")
-    public FilterRegistrationBean adminFilterConfig() {
+    public FilterRegistrationBean userFilterConf() {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
         filterRegistrationBean.setFilter(userFilter());
 
         //设置拦截路径
         filterRegistrationBean.addUrlPatterns("/cart/*");
         filterRegistrationBean.addUrlPatterns("/order/*");
+        //filterRegistrationBean.addUrlPatterns("/user/update");
 
         //设置拦截器name
         filterRegistrationBean.setName("userFilterConf");

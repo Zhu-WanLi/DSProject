@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void register(String userName, String password) throws MallException {
+    public void register(String userName, String password,String emailAddress) throws MallException {
         User result = userMapper.selectByName(userName);
         if (result != null) {
             throw new MallException(MallExceptionEnum.NAME_EXISTED);
@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
 
         User user = new User();
         user.setUsername(userName);
+        user.setEmailAddress(emailAddress);
         try {
             user.setPassword(MD5Utils.getMD5Str(password));
         } catch (NoSuchAlgorithmException e) {
@@ -51,7 +52,7 @@ public class UserServiceImpl implements UserService {
         }
 
         User user = userMapper.selectLogin(username, md5Password);
-        if (user == null){
+        if (user == null) {
             throw new MallException(MallExceptionEnum.WRONG_PASSWORD);
         }
         return user;
@@ -60,13 +61,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateInformation(User user) throws MallException {
         int count = userMapper.updateByPrimaryKeySelective(user);
-        if(count != 1){
+        if (count != 1) {
             throw new MallException(MallExceptionEnum.UPDATE_FAILED);
         }
     }
 
     @Override
-    public boolean checkAdminRole(User user){
+    public boolean checkAdminRole(User user) {
         return user.getRole().equals(2);
     }
+
+    @Override
+    public boolean checkEmailRegistered(String emailAddress) {
+        User user = userMapper.selectOneByEmailAddress(emailAddress);
+        if (user == null) {
+            return false;
+        }
+        return true;
+    }
+
 }

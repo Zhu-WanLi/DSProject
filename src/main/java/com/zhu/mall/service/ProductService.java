@@ -9,6 +9,9 @@ import com.zhu.mall.model.pojo.Product;
 import com.zhu.mall.model.request.AddProductReq;
 import com.zhu.mall.model.request.ProductListReq;
 
+import java.io.File;
+import java.io.IOException;
+
 public interface ProductService {
 
     void add(AddProductReq addProductReq);
@@ -24,4 +27,6 @@ public interface ProductService {
     Product detail(Integer id);
 
     PageInfo list(ProductListReq productListReq);
+
+    void addProductByExcel(File destFile) throws IOException;
 }

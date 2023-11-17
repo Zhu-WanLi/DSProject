@@ -4,7 +4,10 @@ import com.zhu.mall.common.ApiRestResponse;
 import com.zhu.mall.service.OrderService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 /**
  * 描述：      管理员订单Controller
@@ -29,5 +32,15 @@ public class OrderAdminController {
     public ApiRestResponse delivered(@RequestParam String orderNo) {
         orderService.delivered(orderNo);
         return ApiRestResponse.success();
+    }
+
+    /**
+     * 订单统计
+     * */
+    @GetMapping("/statistics")
+    @ApiOperation("订单统计")
+    public ApiRestResponse statistics(@RequestParam("startDate") @DateTimeFormat(pattern = "yy-MM-dd") Date startDate,
+                                      @RequestParam("endDate") @DateTimeFormat(pattern = "yy-MM-dd") Date endDate) {
+        return ApiRestResponse.success(orderService.statistic(startDate,endDate));
     }
 }

@@ -4,7 +4,7 @@ import com.zhu.mall.model.pojo.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository("userMapper")
+@Repository
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -20,6 +20,8 @@ public interface UserMapper {
 
     User selectByName(String userName);
 
-    User selectLogin(@Param("username") String username,@Param("password") String password);
-                    //多个参数要进行指定
+    User selectLogin(@Param("username") String username, @Param("password") String password);
+    //多个参数要进行指定
+
+    User selectOneByEmailAddress(String emailAddress);
 }

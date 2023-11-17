@@ -25,6 +25,18 @@ public enum MallExceptionEnum {
     NO_ORDER(10020,"订单不存在"),
     NO_YOUR_ORDER(10021,"订单不属于你"),
     WRONG_ORDER_STATUS(10022,"订单状态不符"),
+    EMAIL_ERROR(10023,"邮箱地址非法"),
+    EMAIL_ALREADY_BEEN_REGISTERED(10024,"邮箱已被注册"),
+    EMAIL_ALREADY_BEEN_SEND(10025,"email已发送，若无法收到，轻稍后再试"),
+    NEED_EMAIL_ADDRESS(10026,"邮箱不能为空"),
+    NEED_VERIFICATION_CODE(10027,"验证码不能为空"),
+    VERIFICATION_C0DE_ERROR(10028,"验证码错误"),
+    TOKEN_EXPIRED(10029,"token过期异常"),
+    TOKEN_WRONG(10030,"token解析失败"),
+    CANCEL_WRONG_ORDER_STATUS(10031,"订单状态有误，付款后暂不支持取消订单"),
+    PAY_WRONG_ORDER_STATUS(10032,"订单状态有误，仅能在未付款时付款"),
+    DELIVER_WRONG_ORDER_STATUS(10033,"订单状态有误，仅能在付款后发货"),
+    FINISH_WRONG_ORDER_STATUS(10033,"订单状态有误，仅能在发货后完单"),
     SYSTEM_ERROR(20000,"系统异常");
     //异常码
     Integer code;  //异常码

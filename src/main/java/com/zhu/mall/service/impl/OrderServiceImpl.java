@@ -14,9 +14,11 @@ import com.zhu.mall.model.dao.ProductMapper;
 import com.zhu.mall.model.pojo.Order;
 import com.zhu.mall.model.pojo.OrderItem;
 import com.zhu.mall.model.pojo.Product;
+import com.zhu.mall.model.query.OrderStatisticsQuery;
 import com.zhu.mall.model.request.CreateOrderReq;
 import com.zhu.mall.model.vo.CartVO;
 import com.zhu.mall.model.vo.OrderItemVO;
+import com.zhu.mall.model.vo.OrderStatisticsVO;
 import com.zhu.mall.model.vo.OrderVO;
 import com.zhu.mall.service.CartService;
 import com.zhu.mall.service.OrderService;
@@ -34,8 +36,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,8 +58,8 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     UserService userService;
 
-    @Value("${file.upload.ip}")  //配置文件注入外界可以访问的ip
-    String ip;
+    @Value("${file.upload.uri}")
+    String uri;
 
     @Override
     //数据库事务，遇到任何异常（Exception.class）回滚
@@ -245,7 +245,7 @@ public class OrderServiceImpl implements OrderService {
             order.setEndTime(new Date());
             orderMapper.updateByPrimaryKeySelective(order);
         } else {
-            throw new MallException(MallExceptionEnum.WRONG_ORDER_STATUS);
+            throw new MallException(MallExceptionEnum.CANCEL_WRONG_ORDER_STATUS);
         }
     }
 
@@ -264,7 +264,7 @@ public class OrderServiceImpl implements OrderService {
 //        }
 
         //                     拿到端口号
-        String address = this.ip + ":" + request.getLocalPort();
+        String address = this.uri;
         //支付url
         String payUrl = "http://" + address + "/order/pay?orderNo=" + orderNo;
         try {
@@ -299,7 +299,7 @@ public class OrderServiceImpl implements OrderService {
             order.setPayTime(new Date());
             orderMapper.updateByPrimaryKeySelective(order);
         }else {
-            throw new MallException(MallExceptionEnum.WRONG_ORDER_STATUS);
+            throw new MallException(MallExceptionEnum.PAY_WRONG_ORDER_STATUS);
         }
     }
 
@@ -314,7 +314,7 @@ public class OrderServiceImpl implements OrderService {
             order.setDeliveryTime(new Date());
             orderMapper.updateByPrimaryKeySelective(order);
         }else {
-            throw new MallException(MallExceptionEnum.WRONG_ORDER_STATUS);
+            throw new MallException(MallExceptionEnum.DELIVER_WRONG_ORDER_STATUS);
         }
     }
 
@@ -333,9 +333,20 @@ public class OrderServiceImpl implements OrderService {
             order.setEndTime(new Date());
             orderMapper.updateByPrimaryKeySelective(order);
         }else {
-            throw new MallException(MallExceptionEnum.WRONG_ORDER_STATUS);
+            throw new MallException(MallExceptionEnum.FINISH_WRONG_ORDER_STATUS);
         }
     }
+
+    @Override
+    public List<OrderStatisticsVO> statistic(Date startDate, Date endDate){
+        OrderStatisticsQuery orderStatisticsQuery = new OrderStatisticsQuery();
+        orderStatisticsQuery.setStartDate(startDate);
+        orderStatisticsQuery.setEndDate(endDate);
+        List<OrderStatisticsVO> orderStatisticsVOList = orderMapper.selectOrderStatistics(orderStatisticsQuery);
+        return orderStatisticsVOList;
+    }
+
+
 }
 
 

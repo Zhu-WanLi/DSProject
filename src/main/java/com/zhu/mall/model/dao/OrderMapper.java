@@ -1,6 +1,9 @@
 package com.zhu.mall.model.dao;
 
 import com.zhu.mall.model.pojo.Order;
+import com.zhu.mall.model.query.OrderStatisticsQuery;
+import com.zhu.mall.model.vo.OrderStatisticsVO;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,4 +27,6 @@ public interface OrderMapper {
     List<Order> selectForCustomer(Integer userId);
 
     List<Order> selectListForAdmin();
+
+    List<OrderStatisticsVO> selectOrderStatistics(@Param("query") OrderStatisticsQuery query);
 }

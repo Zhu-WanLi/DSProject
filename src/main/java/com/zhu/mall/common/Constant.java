@@ -4,7 +4,6 @@ package com.zhu.mall.common;
 import com.google.common.collect.Sets;
 import com.zhu.mall.exception.MallException;
 import com.zhu.mall.exception.MallExceptionEnum;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +16,11 @@ import java.util.Set;
 public class Constant {
     public static final String SALT = "zWl8hiu3.,{PdsD]";
     public static final String MALL_USER = "mall_user";
+    public static final String EMAIL_SUBJECT = "您的验证码";
+    public static final String EMAIL_FROM = "1585978378@qq.com";
+    public static final String WATER_MARK_JPG = "watermark.jpg"; //水印
+    public static final Integer IMAGE_SIZE = 400;
+    public static final Float IMAGE_OPACITY = 1F;
 
     public static String FILE_UPLOAD_DIR;    //上传文件的地址
 
@@ -43,7 +47,7 @@ public class Constant {
 
     /**
      * 描述：      订单状态枚举类
-     * */
+     */
     public enum OrderStatusEnum {
         CANCELED(0, "用户已取消"),
         NOT_PAID(10, "未付款"),
@@ -57,7 +61,7 @@ public class Constant {
         //用code拿到信息
         public static OrderStatusEnum codeOf(int code) {
             for (OrderStatusEnum orderStatusEnum : values()) {
-                if (orderStatusEnum.getCode() == code){
+                if (orderStatusEnum.getCode() == code) {
                     return orderStatusEnum;
                 }
             }
@@ -85,4 +89,12 @@ public class Constant {
             this.value = value;
         }
     }
+
+    public static final String JWT_KEY = "MALL";  //Jwt秘钥
+    public static final String JWT_TOKEN = "jwt_token";  //前后端约定的值
+
+    public static final String USER_NAME = "user_name";
+    public static final String USER_ID = "user_id";
+    public static final String USER_ROLE = "user_role";
+    public static final Long EXPIRE_TIME = 60 * 1000 * 60 * 24 * 100l; //单位是毫秒
 }
